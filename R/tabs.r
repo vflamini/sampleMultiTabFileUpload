@@ -7,13 +7,13 @@ jscode <- paste(readLines("./www/customInitialImport.js"), collapse = "\n")
 # shinyjs.init = function() {
 #   $(document).keypress(function(e) { alert('Key pressed: ' + e.which); });
 # }"
-print(jscode)
 
 sampletab1 <- tabPanel(
+  value = "sample1",
   title = "Sample 1",
   sidebarLayout(
     sidebarPanel(
-      
+      id = "file1sidebar"
     ),
     mainPanel(
       div("test")
@@ -22,10 +22,11 @@ sampletab1 <- tabPanel(
 )
 
 sampletab2 <- tabPanel(
+  value = "sample2",
   title = "Sample 2",
   sidebarLayout(
     sidebarPanel(
-      
+      id = "file2sidebar"
     ),
     mainPanel(
       div("test2")

@@ -19,7 +19,7 @@ shinyApp(
     ),
     navbarPage(
       id = "navbar",
-  # theme = bs_theme() is required for theme.r to work
+    # theme = bs_theme() is required for theme.r to work
       theme = bslib::bs_theme(),
       # since we have a title panel the title on nav can be blank
       title = "",
@@ -41,6 +41,13 @@ shinyApp(
   server = function(input, output) {
     observeEvent(input$navbar, {
       js$buildImport("file1")
+      js$buildImport("file2")
+    })
+    observeEvent(input$file1, {
+      shinyjs::logjs(input$file1)
+    })
+    observeEvent(input$file2, {
+      shinyjs::logjs(input$file2)
     })
   }
 )
